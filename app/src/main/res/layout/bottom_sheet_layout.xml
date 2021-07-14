@@ -9,8 +9,16 @@
     android:gravity="center"
     android:paddingTop="25dp"
     android:paddingBottom="25dp">
-
+    <!-- Back button -->
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_back" />
+    <!-- Highlight 1  -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_highlightA"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="gone">
@@ -27,8 +35,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!-- Highlight 2 -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_highlightB"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="gone">
@@ -58,8 +67,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!-- Connect Animation -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_connect"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="gone">
@@ -116,8 +126,9 @@
             app:layout_constraintTop_toBottomOf="@+id/secondText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!-- Scan Animation -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_scan"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="gone">
@@ -154,11 +165,12 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scanAnimation" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!-- Connect Device Screen -->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_connectDevice"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/fistText"
@@ -222,7 +234,6 @@
             app:layout_constraintStart_toEndOf="@id/batteryIcon"
             app:layout_constraintTop_toBottomOf="@id/secondText12"/>
 
-
         <Button
             android:id="@+id/continueButton"
             android:layout_width="wrap_content"
@@ -245,13 +256,13 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/continueButton"
             app:layout_constraintBottom_toBottomOf="parent">
+
             <TextView
                 android:id="@+id/retryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#808080"
                 android:text="Not what you are looking for? "/>
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -261,8 +272,1209 @@
                 app:layout_constraintTop_toBottomOf="@id/continueButton"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Connecting Device Screen -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_connecting"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/deviceImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/device"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.faceopen.ado_poc.DottedProgressBar
+            android:id="@+id/progress"
+            android:layout_width="120dp"
+            android:layout_height="20dp"
+            app:activeDot="@color/spiral_color_on"
+            app:dotSize="8dp"
+            app:inactiveDot="@color/spiral_color_on"
+            app:jumpingSpeed="670"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/deviceImage"
+            app:layout_constraintRight_toLeftOf="@id/adoImage1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spacing="10dp">
+
+        </com.faceopen.ado_poc.DottedProgressBar>
+
+        <ImageView
+            android:id="@+id/adoImage1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/bot"
+            android:layout_marginStart="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guideline1"
+            app:layout_constraintStart_toEndOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_pair_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:text="Pairing failed, Please try again"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/deviceImage"
+            app:layout_constraintRight_toLeftOf="@id/adoImage1"
+            app:layout_constraintTop_toBottomOf="@id/progress"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Connecting..."
+            android:textColor="#808080"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/deviceImage"
+            app:layout_constraintRight_toLeftOf="@id/adoImage1"
+            app:layout_constraintTop_toBottomOf="@id/progress"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Installation Setup Screen -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_installation"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvInstall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Installation Process"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/adoImage2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/bot"
+            app:layout_constraintTop_toBottomOf="@+id/tvInstall"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/install_text"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/adoImage2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvDetail_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/install_text_a"
+            android:textColor="#212121"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivDetail_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/install_text_b"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetail_a"
+            app:layout_constraintRight_toLeftOf="@+id/tvDetail_b"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDetail_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/install_text_b"
+            android:textColor="#212121"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetail_a"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <Button
+            android:id="@+id/bt_continue_install"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:background="@drawable/background_button_drawable"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+            android:text="Continue"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvDetail_b"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvDetail_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/install_text_c"
+            android:textColor="#212121"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/bt_continue_install"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Clamping Screen -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_clamping"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvClamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Place the bot"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvClamp_Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/clamp_text_a"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvClamp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivDoor"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/dooropen_white"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvClamp_Detail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_clamp_detail_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/install_text_b"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/ivDoor"
+            app:layout_constraintRight_toLeftOf="@+id/tvclamp_Detail"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tvclamp_Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/clamp_text_c"
+            android:textColor="#212121"
+            android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@+id/ivDoor"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <Button
+            android:id="@+id/bt_continue_clamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="30dp"
+            android:background="@drawable/background_button_drawable"
+            android:text="Start Auto Fasten"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvclamp_Detail"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Auto Fasten -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_autoFasten"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvAuto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Auto Fasten"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_auto_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:gravity="center"
+            android:text="@string/auto_text"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAuto" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/ivAutoDoor"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/dooropen_white"
+            app:layout_constraintRight_toLeftOf="@id/gl_auto"
+            app:layout_constraintTop_toBottomOf="@+id/tv_auto_detail" />
+
+
+        <TextView
+            android:id="@+id/tv_auto_steps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Steps: "
+            android:paddingBottom="20dp"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_marginLeft="35dp"
+            app:layout_constraintLeft_toRightOf="@id/gl_auto"
+            app:layout_constraintTop_toBottomOf="@+id/tv_auto_detail" />
+
+        <TextView
+            android:id="@+id/tv_auto_steps_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Vertical fastening"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toRightOf="@id/pb_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/tv_auto_steps" />
+
+        <TextView
+            android:id="@+id/tv_auto_steps_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Horizontal fastening"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            android:gravity="center"
+            app:layout_constraintLeft_toRightOf="@id/pb_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_auto_steps_1" />
+
+        <com.faceopen.ado_poc.CircleProgressBar
+            android:id="@+id/pb_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintLeft_toRightOf="@id/gl_auto"
+            app:layout_constraintStart_toStartOf="@id/tv_auto_steps"
+            app:layout_constraintTop_toBottomOf="@id/tv_auto_steps" />
+
+        <com.faceopen.ado_poc.CircleProgressBar
+            android:id="@+id/pb_horizontal"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toRightOf="@id/gl_auto"
+            app:layout_constraintStart_toStartOf="@id/tv_auto_steps"
+            app:layout_constraintTop_toBottomOf="@id/pb_vertical" />
+
+
+        <TextView
+            android:id="@+id/tv_auto_detail_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/auto_text_a"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAutoDoor" />
+
+
+        <TextView
+            android:id="@+id/tv_auto_manual_clamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/auto_text_b"
+            android:textColor="@color/spiral_color_on"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_auto_detail_a" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Manual Fasten -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_manualFasten"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvManual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Manual Vertical Fastening"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_manual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/ivManualDoor"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/dooropen_white"
+            app:layout_constraintRight_toLeftOf="@id/gl_manual"
+            app:layout_constraintTop_toBottomOf="@+id/tvManual" />
+
+
+        <TextView
+            android:id="@+id/tv_up"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Up"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/gl_manual"
+            app:layout_constraintTop_toBottomOf="@+id/tvManual" />
+
+
+        <ImageView
+            android:id="@+id/iv_up"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_up"
+            app:layout_constraintLeft_toRightOf="@id/gl_manual"
+            app:layout_constraintStart_toStartOf="@id/tv_up"
+            app:layout_constraintTop_toBottomOf="@+id/tv_up" />
+
+        <ImageView
+            android:id="@+id/iv_down"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_down"
+            app:layout_constraintLeft_toRightOf="@id/gl_manual"
+            app:layout_constraintStart_toStartOf="@id/tv_up"
+            app:layout_constraintTop_toBottomOf="@+id/iv_up" />
+
+
+        <TextView
+            android:id="@+id/tv_down"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Down"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/tv_up"
+            app:layout_constraintLeft_toRightOf="@id/gl_manual"
+            app:layout_constraintTop_toBottomOf="@+id/iv_down" />
+
+
+        <TextView
+            android:id="@+id/tv_manual_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/manual_text"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivManualDoor" />
+
+        <Button
+            android:id="@+id/bt_continue_manual_clamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="30dp"
+            android:background="@drawable/background_button_drawable"
+            android:text="Continue"
+            android:textColor="@color/white"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+            app:layout_constraintTop_toBottomOf="@id/tv_manual_continue"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Calibration Setup Screen-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_calibration"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_cal_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Calibration"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_cal_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/calibration_head"
+            android:textColor="#212121"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cal_head" />
+
+        <TextView
+            android:id="@+id/tv_cal_serial_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="1"
+            android:gravity="center"
+            android:background="@drawable/circular_back"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_cal_detail_a"
+            app:layout_constraintStart_toStartOf="@id/tv_cal_detail"
+            app:layout_constraintTop_toBottomOf="@id/tv_cal_detail" />
+
+
+        <TextView
+            android:id="@+id/tv_cal_detail_a"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/calibration_detail_a"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/tv_cal_serial_a"
+            app:layout_constraintTop_toBottomOf="@id/tv_cal_detail" />
+
+
+        <TextView
+            android:id="@+id/tv_cal_serial_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="2"
+            android:gravity="center"
+            android:background="@drawable/circular_back"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/tv_cal_detail"
+            app:layout_constraintTop_toBottomOf="@id/tv_cal_serial_a" />
+
+        <TextView
+            android:id="@+id/tv_cal_detail_b"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/calibration_detail_b"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/tv_cal_serial_b"
+            app:layout_constraintTop_toBottomOf="@id/tv_cal_detail_a" />
+
+        <TextView
+            android:id="@+id/tv_cal_serial_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="3"
+            android:gravity="center"
+            android:background="@drawable/circular_back"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/tv_cal_detail"
+            app:layout_constraintTop_toBottomOf="@id/tv_cal_serial_b"
+            app:layout_constraintRight_toLeftOf="@id/tv_cal_detail_b"/>
+
+        <TextView
+            android:id="@+id/tv_cal_detail_c"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/calibration_detail_c"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/tv_cal_serial_c"
+            app:layout_constraintTop_toBottomOf="@id/tv_cal_detail_b" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Close calibration Screen -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_closeCal"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Calibration"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_cal_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/cal_close"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cal" />
+
+
+        <ImageView
+            android:id="@+id/iv_close_door_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:visibility="gone"
+            android:src="@drawable/doorclose_white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cal_sub"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/iv_close_door"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/doorclose_white"
+            app:layout_constraintRight_toLeftOf="@id/gl_close"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cal_sub" />
+
+
+        <TextView
+            android:id="@+id/tv_close_forward"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Forward"
+            android:textColor="#000"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/gl_close"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cal_sub" />
+
+
+        <ImageView
+            android:id="@+id/iv_close_forward"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_up"
+            app:layout_constraintLeft_toRightOf="@id/gl_close"
+            app:layout_constraintStart_toStartOf="@id/tv_close_forward"
+            app:layout_constraintTop_toBottomOf="@+id/tv_close_forward" />
+
+        <ImageView
+            android:id="@+id/iv_close_backward"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_down"
+            app:layout_constraintLeft_toRightOf="@id/gl_close"
+            app:layout_constraintStart_toStartOf="@id/tv_close_forward"
+            app:layout_constraintTop_toBottomOf="@+id/iv_close_forward" />
+
+
+        <TextView
+            android:id="@+id/tv_close_backward"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Backward"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_close_forward"
+            app:layout_constraintLeft_toRightOf="@id/gl_close"
+            app:layout_constraintTop_toBottomOf="@+id/iv_close_backward" />
+
+        <TextView
+            android:id="@+id/tv_close_icon_a"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:gravity="center"
+            android:background="@drawable/circle_fill"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            app:layout_constraintRight_toLeftOf="@+id/gl_close"
+            app:layout_constraintTop_toBottomOf="@id/iv_close_door" />
+
+        <TextView
+            android:id="@+id/tv_close_icon_b"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:gravity="center"
+            android:background="@drawable/circle_empty"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@+id/gl_close"
+            app:layout_constraintTop_toBottomOf="@id/iv_close_door" />
+
+
+        <TextView
+            android:id="@+id/tv_close_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/cal_success"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_close_door" />
+
+        <Button
+            android:id="@+id/bt_continue_close_calibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_button_drawable"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="Continue"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_close_door" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Open calibration Screen -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_openCal"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_open_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Calibration"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_open_cal_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/cal_open"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_open_cal" />
+
+
+        <ImageView
+            android:id="@+id/iv_open_door_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:visibility="gone"
+            android:src="@drawable/dooropen_white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_open_cal_sub"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/iv_open_door"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/dooropen_white"
+            app:layout_constraintRight_toLeftOf="@id/gl_open"
+            app:layout_constraintTop_toBottomOf="@+id/tv_open_cal_sub" />
+
+
+        <TextView
+            android:id="@+id/tv_open_forward"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Forward"
+            android:textColor="#000"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/gl_open"
+            app:layout_constraintTop_toBottomOf="@+id/tv_open_cal_sub" />
+
+
+        <ImageView
+            android:id="@+id/iv_open_forward"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_up"
+            app:layout_constraintLeft_toRightOf="@id/gl_open"
+            app:layout_constraintStart_toStartOf="@id/tv_open_forward"
+            app:layout_constraintTop_toBottomOf="@+id/tv_open_forward" />
+
+        <ImageView
+            android:id="@+id/iv_open_backward"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_down"
+            app:layout_constraintLeft_toRightOf="@id/gl_open"
+            app:layout_constraintStart_toStartOf="@id/tv_open_forward"
+            app:layout_constraintTop_toBottomOf="@+id/iv_open_forward" />
+
+
+        <TextView
+            android:id="@+id/tv_open_backward"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Backward"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_open_forward"
+            app:layout_constraintLeft_toRightOf="@id/gl_open"
+            app:layout_constraintTop_toBottomOf="@+id/iv_open_backward" />
+
+
+        <TextView
+            android:id="@+id/tv_open_icon_a"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:gravity="center"
+            android:background="@drawable/circle_empty"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            app:layout_constraintRight_toLeftOf="@+id/gl_open"
+            app:layout_constraintTop_toBottomOf="@id/iv_open_door" />
+
+        <TextView
+            android:id="@+id/tv_open_icon_b"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:gravity="center"
+            android:background="@drawable/circle_fill"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@+id/gl_open"
+            app:layout_constraintTop_toBottomOf="@id/iv_open_door" />
+
+        <TextView
+            android:id="@+id/tv_open_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/cal_success"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_open_door" />
+
+        <Button
+            android:id="@+id/bt_continue_open_calibration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_button_drawable"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="Continue"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_open_door" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Testing Setup Screen-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_test"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_test_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/test_text"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:layout_marginTop="120dp"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <Button
+            android:id="@+id/bt_continue_testing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_button_drawable"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="Continue"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_test_detail" />
+
+        <TextView
+            android:id="@+id/tv_test_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Skip"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/spiral_color_on"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_continue_testing"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Testing Open/Close Screen-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_operation_test"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="Testing"
+            android:textColor="#212121"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_test_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_light"
+            android:text="@string/test_op_text"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_test" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/iv_test_door"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/dooropen_white"
+            app:layout_constraintRight_toLeftOf="@id/gl_test"
+            app:layout_constraintTop_toBottomOf="@+id/tv_test_sub" />
+
+        <Switch
+            android:id="@+id/labeledSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:thumb="@drawable/thumb"
+            android:switchMinWidth="120dp"
+            android:track="@drawable/track"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="70dp"
+            app:layout_constraintLeft_toRightOf="@id/gl_test"
+            app:layout_constraintTop_toBottomOf="@+id/tv_test_sub"/>
+
+        <TextView
+            android:id="@+id/swClose"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="Close"
+            android:textColor="@color/red"
+            android:textSize="16sp"
+            android:visibility="visible"
+            android:layout_marginTop="60dp"
+            app:layout_constraintLeft_toRightOf="@id/swOpen"
+            app:layout_constraintTop_toBottomOf="@+id/tv_test_sub"/>
+
+        <TextView
+            android:id="@+id/swOpen"
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_height="55dp"
+            android:text="Open"
+            android:textSize="16sp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="70dp"
+            android:textColor="@color/spiral_color_on"
+            app:layout_constraintLeft_toRightOf="@id/gl_test"
+            app:layout_constraintTop_toBottomOf="@+id/tv_test_sub"/>
+
+
+        <TextView
+            android:id="@+id/tv_reCalibrate"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="re-calibrate"
+            android:textColor="@color/spiral_color_on"
+            app:layout_constraintLeft_toRightOf="@id/gl_test"
+            app:layout_constraintStart_toStartOf="@+id/labeledSwitch"
+            app:layout_constraintTop_toBottomOf="@+id/labeledSwitch" />
+
+
+        <Button
+            android:id="@+id/bt_continue_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_button_drawable"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="Continue"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_test_door" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Setup successful-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_done"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+    <TextView
+        android:id="@+id/tv_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunitosans_light"
+        android:text="@string/setup_success"
+        android:textColor="#212121"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <ImageView
+        android:id="@+id/iv_close_bot"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        android:src="@drawable/bot"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_done"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </RelativeLayout>

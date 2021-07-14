@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">ADO_poc</string>
+    <string name="install_text">Includes the following steps:</string>
+    <string name="install_text_a">1) Door clamping\n2) Doorbot Calibration</string>
+    <string name="install_text_b">Doorbot clamp will be moved to initial position</string>
+    <string name="install_text_c">Already Installed? Skip</string>
+    <string name="clamp_text_a">Slide the bot on the inside of the door, should\nbe placed under door handle.</string>
+    <string name="clamp_text_c">Click the button below once you place the bot</string>
+    <string name="auto_text">Relax, automatic bot fasten in progress...</string>
+    <string name="auto_text_a">Clamp jammed or extreme running, Re-try</string>
+    <string name="auto_text_b">Manual Clamping</string>
+    <string name="manual_text">Vertical clamp is tight on the door. Proceed with caution!</string>
+    <string name="calibration_head">Calibration includes following tasks:</string>
+    <string name="calibration_detail_a">Setting door close position</string>
+    <string name="calibration_detail_b">Setting door open position</string>
+    <string name="calibration_detail_c">Testing the calibration</string>
+    <string name="cal_close">Set door close position</string>
+    <string name="cal_open">Set door open position</string>
+    <string name="cal_success">Calibration successful</string>
+    <string name="test_text">You can now test the calibration by clicking\non the button below.</string>
+    <string name="test_op_text">Toggle button below to test the\n open and close door position</string>
+    <string name="setup_success">Doorbot Setup is\nSuccessful!</string>
 </resources>

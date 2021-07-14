@@ -13,12 +13,15 @@
     <color name="temp_color">#DCDCDC</color>
 
     <color name="green">#00e676</color>
-    <color name="red">#ff5252</color>
     <color name="light_grey">#E0E0E0</color>
+    <color name="red">#FF0000</color>
 
     <color name="start_color">#E0E0E0</color>
     <color name="end_color">#FFFFFF</color>
     <color name="spiral_color_on">#038E9B</color>
     <color name="spiral_color_off">#eff9fc</color>
+    <color name="secondary_text_color">#808080</color>
+    <color name="switch_track">#F3F6F7</color>
+
 
 </resources>

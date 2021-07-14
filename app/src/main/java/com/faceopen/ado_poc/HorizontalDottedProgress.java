@@ -13,16 +13,16 @@ import android.view.animation.Transformation;
 
 public class HorizontalDottedProgress extends View {
     //actual dot radius
-    private int mDotRadius = 5;
+    private int mDotRadius = 8;
 
     //Bounced Dot Radius
-    private int mBounceDotRadius = 5;
+    private int mBounceDotRadius = 12;
 
     //to get identified in which position dot has to bounce
     private int  mDotPosition;
 
     //specify how many dots you need in a progressbar
-    private int mDotAmount = 10;
+    private int mDotAmount = 5;
 
     public HorizontalDottedProgress(Context context) {
         super(context);
@@ -44,7 +44,7 @@ public class HorizontalDottedProgress extends View {
         Paint paint = new Paint();
 
         //set the color for the dot that you want to draw
-        paint.setColor(Color.parseColor("#000000"));
+        paint.setColor(Color.parseColor("#038E9B"));
 
         //function to create dot
         createDot(canvas,paint);
@@ -70,7 +70,6 @@ public class HorizontalDottedProgress extends View {
             }
         }
 
-
     }
 
     @Override
@@ -80,7 +79,7 @@ public class HorizontalDottedProgress extends View {
         int height;
 
         //calculate the view width
-        int calculatedWidth = (20*9);
+        int calculatedWidth = (10*9);
 
         width = calculatedWidth;
         height = (mBounceDotRadius*2);
@@ -93,7 +92,7 @@ public class HorizontalDottedProgress extends View {
 
     private void startAnimation() {
         BounceAnimation bounceAnimation = new BounceAnimation();
-        bounceAnimation.setDuration(100);
+        bounceAnimation.setDuration(400);
         bounceAnimation.setRepeatCount(Animation.INFINITE);
         bounceAnimation.setInterpolator(new LinearInterpolator());
         bounceAnimation.setAnimationListener(new Animation.AnimationListener() {

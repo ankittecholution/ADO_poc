@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public ImageView ado1, ado2;
     public FrameLayout frameLayout;
 
+    DottedProgressBar bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
         circleView2 = findViewById(R.id.circleView2);
         circleView3 = findViewById(R.id.circleView3);
         frameLayout = findViewById(R.id.frameLayout);
+        bar = findViewById(R.id.progress);
         ado1 = findViewById(R.id.ado1);
         ado2 = findViewById(R.id.ado2);
+
         btn_bottom_sheet.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -98,5 +101,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        Runnable run = new Runnable(){
+            @Override
+            public void run() {
+                bar.startProgress();
+            }
+        };
+        Handler han = new Handler();
+        han.postAtTime(run, 100);
     }
 }
