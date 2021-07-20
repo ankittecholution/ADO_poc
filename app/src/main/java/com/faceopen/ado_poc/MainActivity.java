@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -15,10 +18,12 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.mikhaellopez.circleview.CircleView;
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout cl_highlightA;
     private ConstraintLayout cl_highlightB;
     private TextView thanksText;
+    private ConstraintLayout cl_video ;
+    private VideoView videoView1 ;
     private ConstraintLayout cl_connect;
     private ImageView startAdo;
     private TextView firstText;
@@ -243,6 +250,8 @@ public class MainActivity extends AppCompatActivity {
         cl_highlightA = (ConstraintLayout) findViewById(R.id.cl_highlightA);
         cl_highlightB = (ConstraintLayout) findViewById(R.id.cl_highlightB);
         thanksText = (TextView) findViewById(R.id.thanksText);
+        cl_video = (ConstraintLayout) findViewById(R.id.cl_video );
+        videoView1 = (VideoView) findViewById(R.id.videoView1) ;
         cl_connect = (ConstraintLayout) findViewById(R.id.cl_connect);
         startAdo = (ImageView) findViewById(R.id.startAdo);
         firstText = (TextView) findViewById(R.id.firstText);
@@ -372,63 +381,75 @@ public class MainActivity extends AppCompatActivity {
                     cl_highlightA.setVisibility(View.GONE);
                     cl_highlightB.setVisibility(View.VISIBLE);
                 }
-                if(count == 5){
+                if(count == 4){
                     cl_highlightB.setVisibility(View.GONE);
+                    cl_video.setVisibility(View.VISIBLE);
+
+
+                    String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.testvideo;
+                    Uri uri = Uri.parse(uriPath);
+                    videoView1.setVideoURI(uri);
+                    videoView1.requestFocus();
+                    videoView1.start();
+                }
+                if(count == 10){
+                    cl_video.setVisibility(View.GONE);
                     cl_connect.setVisibility(View.VISIBLE);
                 }
-                if(count == 7){
+
+                if(count == 11){
                     cl_connect.setVisibility(View.GONE);
                     cl_scan.setVisibility(View.VISIBLE);
                 }
-                if(count == 9){
+                if(count == 13){
                     cl_scan.setVisibility(View.GONE);
                     cl_connectDevice.setVisibility(View.VISIBLE);
                 }
-                if(count == 11){
+                if(count == 15){
                     cl_connectDevice.setVisibility(View.GONE);
                     cl_connecting.setVisibility(View.VISIBLE);
                 }
-                if(count == 13){
+                if(count == 17){
                     cl_connecting.setVisibility(View.GONE);
                     cl_installation.setVisibility(View.VISIBLE);
                 }
-                if(count == 15){
+                if(count == 19){
                     cl_installation.setVisibility(View.GONE);
                     cl_clamping.setVisibility(View.VISIBLE);
                 }
-                if(count == 17){
+                if(count == 21){
                     cl_clamping.setVisibility(View.GONE);
                     cl_autoFasten.setVisibility(View.VISIBLE);
                 }
-                if(count == 19){
+                if(count == 23){
                     cl_autoFasten.setVisibility(View.GONE);
                     cl_manualFasten.setVisibility(View.VISIBLE);
                 }
-                if(count == 21){
+                if(count == 25){
                     cl_manualFasten.setVisibility(View.GONE);
                     cl_calibration.setVisibility(View.VISIBLE);
                 }
-                if(count == 23){
+                if(count == 27){
                     cl_calibration.setVisibility(View.GONE);
                     cl_closeCal.setVisibility(View.VISIBLE);
                 }
-                if(count == 25){
-                    cl_closeCal.setVisibility(View.GONE);
-                    cl_openCal.setVisibility(View.VISIBLE);
-                }
-                if(count == 27){
-                    cl_closeCal.setVisibility(View.GONE);
-                    cl_openCal.setVisibility(View.VISIBLE);
-                }
                 if(count == 29){
+                    cl_closeCal.setVisibility(View.GONE);
+                    cl_openCal.setVisibility(View.VISIBLE);
+                }
+                if(count == 31){
+                    cl_closeCal.setVisibility(View.GONE);
+                    cl_openCal.setVisibility(View.VISIBLE);
+                }
+                if(count == 33){
                     cl_openCal.setVisibility(View.GONE);
                     cl_test.setVisibility(View.VISIBLE);
                 }
-                if(count == 31){
+                if(count == 35){
                     cl_test.setVisibility(View.GONE);
                     cl_operation_test.setVisibility(View.VISIBLE);
                 }
-                if(count == 33){
+                if(count == 37){
                     cl_operation_test.setVisibility(View.GONE);
                     cl_done.setVisibility(View.VISIBLE);
                 }

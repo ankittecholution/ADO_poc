@@ -68,12 +68,34 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--video-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_video"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone">
+
+        <VideoView
+            android:id="@+id/videoView1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <!-- Connect Animation -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_connect"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="gone">
+
+
+
 
         <ImageView
             android:id="@+id/startAdo"
