@@ -8,7 +8,7 @@
     <string name="clamp_text_c">Click the button below once you place the bot</string>
     <string name="auto_text">Relax, automatic bot fasten in progress...</string>
     <string name="auto_text_a">Clamp jammed or extreme running, Re-try</string>
-    <string name="auto_text_b">Manual Clamping</string>
+    <string name="auto_text_b"><u>Manual Clamping</u></string>
     <string name="manual_text">Vertical clamp is tight on the door. Proceed with caution!</string>
     <string name="calibration_head">Calibration includes following tasks:</string>
     <string name="calibration_detail_a">Setting door close position</string>
@@ -20,4 +20,6 @@
     <string name="test_text">You can now test the calibration by clicking\non the button below.</string>
     <string name="test_op_text">Toggle button below to test the\n open and close door position</string>
     <string name="setup_success">Doorbot Setup is\nSuccessful!</string>
+    <string name="re_scan"><u>Re-scan</u></string>
+    <string name="skip"><u>Skip</u></string>
 </resources>

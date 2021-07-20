@@ -8,6 +8,7 @@
     android:elevation="25dp"
     android:gravity="center"
     android:paddingTop="25dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     android:paddingBottom="25dp">
     <!-- Back button -->
     <ImageView
@@ -21,7 +22,7 @@
         android:id="@+id/cl_highlightA"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -267,7 +268,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Re-scan"
+                android:text="@string/re_scan"
                 app:layout_constraintLeft_toRightOf="@+id/retryText"
                 app:layout_constraintTop_toBottomOf="@id/continueButton"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -1310,7 +1311,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nunitosans_light"
-            android:text="Skip"
+            android:text="@string/skip"
             android:layout_marginTop="20dp"
             android:textColor="@color/spiral_color_on"
             android:textSize="20sp"
@@ -1324,7 +1325,7 @@
         android:id="@+id/cl_operation_test"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/tv_test"
