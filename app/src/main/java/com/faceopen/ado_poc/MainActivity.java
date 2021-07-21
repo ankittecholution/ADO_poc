@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 
+
 import android.app.PendingIntent;
 import android.content.Context;
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -384,13 +387,26 @@ public class MainActivity extends AppCompatActivity {
                 if(count == 4){
                     cl_highlightB.setVisibility(View.GONE);
                     cl_video.setVisibility(View.VISIBLE);
-
-
+                    videoView1.setBackgroundColor(Color.WHITE);
                     String uriPath = "android.resource://"+getPackageName()+"/"+R.raw.testvideo;
                     Uri uri = Uri.parse(uriPath);
-                    videoView1.setVideoURI(uri);
+                    videoView1.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            videoView1.setVideoURI(uri);
+                        }
+                    }, 100);
+
+                    videoView1.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            videoView1.setBackgroundColor(Color.TRANSPARENT);
+                        }
+                    }, 1000);
                     videoView1.requestFocus();
                     videoView1.start();
+
+
                 }
                 if(count == 10){
                     cl_video.setVisibility(View.GONE);
