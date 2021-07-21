@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         Runnable run = new Runnable(){
             @Override
             public void run() {
-                bar.startProgress();
+                progress.startProgress();
             }
         };
         Handler han = new Handler();
@@ -424,6 +424,7 @@ public class MainActivity extends AppCompatActivity {
                 if(count == 15){
                     cl_connectDevice.setVisibility(View.GONE);
                     cl_connecting.setVisibility(View.VISIBLE);
+
                 }
                 if(count == 17){
                     cl_connecting.setVisibility(View.GONE);

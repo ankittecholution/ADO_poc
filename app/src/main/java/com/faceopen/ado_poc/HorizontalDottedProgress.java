@@ -44,10 +44,11 @@ public class HorizontalDottedProgress extends View {
         Paint paint = new Paint();
 
         //set the color for the dot that you want to draw
-        paint.setColor(Color.parseColor("#038E9B"));
+        paint.setColor(Color.parseColor("#fd583f"));
 
         //function to create dot
         createDot(canvas,paint);
+        startAnimation() ;
     }
 
     @Override
@@ -62,10 +63,10 @@ public class HorizontalDottedProgress extends View {
         //here i have setted progress bar with 10 dots , so repeat and wnen i = mDotPosition  then increase the radius of dot i.e mBounceDotRadius
         for(int i = 0; i < mDotAmount; i++ ){
             if(i == mDotPosition){
-                paint.setColor(Color.parseColor("#ffffff"));
+                //paint.setColor(Color.parseColor("#000"));
                 canvas.drawCircle(10+(i*20), mBounceDotRadius, mBounceDotRadius, paint);
             }else {
-                //paint.setColor(Color.parseColor("#ffffff"));
+               // paint.setColor(Color.parseColor("#fff"));
                 canvas.drawCircle(10+(i*20), mBounceDotRadius, mDotRadius, paint);
             }
         }
@@ -92,7 +93,7 @@ public class HorizontalDottedProgress extends View {
 
     private void startAnimation() {
         BounceAnimation bounceAnimation = new BounceAnimation();
-        bounceAnimation.setDuration(400);
+        bounceAnimation.setDuration(200);
         bounceAnimation.setRepeatCount(Animation.INFINITE);
         bounceAnimation.setInterpolator(new LinearInterpolator());
         bounceAnimation.setAnimationListener(new Animation.AnimationListener() {
