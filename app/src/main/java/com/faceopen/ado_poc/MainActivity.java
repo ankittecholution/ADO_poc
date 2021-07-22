@@ -17,6 +17,8 @@ import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -430,13 +432,106 @@ public class MainActivity extends AppCompatActivity {
                     cl_connecting.setVisibility(View.GONE);
                     cl_installation.setVisibility(View.VISIBLE);
                 }
-                if(count == 19){
+                if(count == 18){
                     cl_installation.setVisibility(View.GONE);
                     cl_clamping.setVisibility(View.VISIBLE);
+                    Animation animation;
+                    animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                            R.anim.move);
+                    tvClamp.startAnimation(animation);
+                    animation.setAnimationListener(new Animation.AnimationListener(){
+                        @Override
+                        public void onAnimationStart(Animation arg0) {
+                        }
+                        @Override
+                        public void onAnimationRepeat(Animation arg0) {
+                        }
+                        @Override
+                        public void onAnimationEnd(Animation arg0) {
+                            tvclamp_Detail.setVisibility(View.VISIBLE);
+                            ivDoor.setVisibility(View.VISIBLE);
+                            iv_clamp_detail_b.setVisibility(View.VISIBLE);
+                         /*   try {
+                                //set time in mili
+                                Thread.sleep(800);
+
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }*/
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    ivDoor.getLayoutParams().height = 400 ;
+                                    tvclamp_Detail.setVisibility(View.VISIBLE);
+                                    bt_continue_clamp.setVisibility(View.VISIBLE);
+                                }
+                            }, 400);
+
+                        }
+                    });
+
+
+
+
                 }
-                if(count == 21){
+                if(count == 20){
                     cl_clamping.setVisibility(View.GONE);
+
+                    tv_auto_detail.setVisibility(View.GONE);
+                    gl_auto.setVisibility(View.GONE);
+                    ivAutoDoor.setVisibility(View.GONE);
+                    tv_auto_steps.setVisibility(View.GONE);
+                    tv_auto_steps_1.setVisibility(View.GONE);
+                    tv_auto_steps_2.setVisibility(View.GONE);
+                    pb_vertical.setVisibility(View.GONE);
+                    pb_horizontal.setVisibility(View.GONE);
+                    tv_cal_detail_a.setVisibility(View.GONE);
+                    tv_auto_detail_a.setVisibility(View.GONE);
+                    tv_auto_manual_clamp.setVisibility(View.GONE);
+
                     cl_autoFasten.setVisibility(View.VISIBLE);
+
+
+
+                    Animation animation;
+                    animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                            R.anim.move);
+                    tvAuto.startAnimation(animation);
+                    animation.setAnimationListener(new Animation.AnimationListener(){
+                        @Override
+                        public void onAnimationStart(Animation arg0) {
+                        }
+                        @Override
+                        public void onAnimationRepeat(Animation arg0) {
+                        }
+                        @Override
+                        public void onAnimationEnd(Animation arg0) {
+
+
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    gl_auto.setVisibility(View.VISIBLE);
+                                    ivAutoDoor.setVisibility(View.VISIBLE);
+                                    tv_auto_steps.setVisibility(View.VISIBLE);
+                                    tv_auto_steps_1.setVisibility(View.VISIBLE);
+                                    tv_auto_steps_2.setVisibility(View.VISIBLE);
+                                    pb_vertical.setVisibility(View.VISIBLE);
+                                    pb_horizontal.setVisibility(View.VISIBLE);
+                                    tv_cal_detail_a.setVisibility(View.VISIBLE);
+                                    tv_auto_manual_clamp.setVisibility(View.VISIBLE);
+                                    tv_auto_detail.setVisibility(View.VISIBLE);
+                                }
+                            }, 200);
+
+
+                        }
+                    });
+
                 }
                 if(count == 23){
                     cl_autoFasten.setVisibility(View.GONE);
@@ -444,9 +539,80 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(count == 25){
                     cl_manualFasten.setVisibility(View.GONE);
+
+                    tv_cal_detail.setVisibility(View.GONE);
+                    tv_cal_serial_a.setVisibility(View.GONE);
+                    tv_cal_serial_b.setVisibility(View.GONE);
+                    tv_cal_serial_c.setVisibility(View.GONE);
+                    tv_cal_detail_a.setVisibility(View.GONE);
+                    tv_cal_detail_b.setVisibility(View.GONE);
+                    tv_cal_detail_c.setVisibility(View.GONE);
+
                     cl_calibration.setVisibility(View.VISIBLE);
+
+                    Animation animation;
+                    animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                            R.anim.move);
+                    tv_cal_head.startAnimation(animation);
+                    animation.setAnimationListener(new Animation.AnimationListener(){
+                        @Override
+                        public void onAnimationStart(Animation arg0) {
+                        }
+                        @Override
+                        public void onAnimationRepeat(Animation arg0) {
+                        }
+                        @Override
+                        public void onAnimationEnd(Animation arg0) {
+
+
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    tv_cal_detail.setVisibility(View.VISIBLE);
+
+
+                                }
+                            }, 100);
+                            final Handler handler1 = new Handler();
+                            handler1.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    tv_cal_serial_a.setVisibility(View.VISIBLE);
+                                    tv_cal_detail_a.setVisibility(View.VISIBLE);
+
+                                }
+                            }, 500);
+                            final Handler handler2 = new Handler();
+                            handler2.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    tv_cal_serial_b.setVisibility(View.VISIBLE);
+                                    tv_cal_detail_b.setVisibility(View.VISIBLE);
+
+                                }
+                            }, 1000);
+                            final Handler handler3 = new Handler();
+                            handler3.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    tv_cal_serial_c.setVisibility(View.VISIBLE);
+                                    tv_cal_detail_c.setVisibility(View.VISIBLE);
+
+                                }
+                            }, 1500);
+
+
+                        }
+                    });
+
+
+
+
                 }
-                if(count == 27){
+                if(count == 28){
                     cl_calibration.setVisibility(View.GONE);
                     cl_closeCal.setVisibility(View.VISIBLE);
                 }
