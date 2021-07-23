@@ -204,52 +204,6 @@ public class MainActivity extends AppCompatActivity {
 
         sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet);
 
-        /**
-         * bottom sheet state change listener
-         * we are changing button text when sheet changed state
-         * */
-        final Handler handler=new Handler();
-        sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                switch (newState) {
-                    case BottomSheetBehavior.STATE_HIDDEN:
-                        break;
-                    case BottomSheetBehavior.STATE_EXPANDED: {
-                        PulseAnimation.newInstance(MainActivity.this).startRippleAnimation(circleView1, circleView2, circleView3);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                //PulseAnimation.newInstance(MainActivity.this).foundDevice(ado1);
-                                PulseAnimation.newInstance(MainActivity.this).createDevices(MainActivity.this,frameLayout);
-                            }
-                        },1000);
-                    }
-                    break;
-                    case BottomSheetBehavior.STATE_COLLAPSED: {
-
-                    }
-                    break;
-                    case BottomSheetBehavior.STATE_DRAGGING:
-                        break;
-                    case BottomSheetBehavior.STATE_SETTLING:
-                        break;
-                }
-            }
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
-            }
-        });
-
-        Runnable run = new Runnable(){
-            @Override
-            public void run() {
-                progress.startProgress();
-            }
-        };
-        Handler han = new Handler();
-        han.postAtTime(run, 100);
     }
 
     private void iniViews() {

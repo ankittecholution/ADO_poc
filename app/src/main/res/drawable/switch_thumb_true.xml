@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
+    <item >
         <shape android:shape="oval">
-            <solid android:color="@color/white"/>
+            <solid android:color="@color/white" />
             <stroke
                 android:width="2dp"
-                android:color="@color/spiral_color_on"/>
-            <padding
-                android:left="17dp"
-                android:right="17dp"
-                android:bottom="12dp"
-                android:top="12dp"
-                />
-            <margin
-                android:left="0dp"
-                android:right="20dp"
-                android:bottom="4dp"
-                android:top="4dp"
-                />
+                android:color="@color/red" />
             <size
                 android:width="55dp"
-                android:height="55dp"/>
+                android:height="55dp" />
         </shape>
     </item>
-    <item android:drawable="@drawable/dooropen" />
+    <item
+        android:height="30dp"
+        android:width="21dp"
+        android:gravity="center"
+        android:drawable="@drawable/doorclose" />
 </layer-list>

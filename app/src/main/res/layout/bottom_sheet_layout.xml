@@ -22,7 +22,7 @@
         android:id="@+id/cl_highlightA"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -97,9 +97,6 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="gone">
-
-
-
 
         <ImageView
             android:id="@+id/startAdo"
@@ -316,8 +313,8 @@
 
         <ImageView
             android:id="@+id/deviceImage"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/device"
             android:layout_marginEnd="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -327,21 +324,30 @@
 
         <com.faceopen.ado_poc.DottedProgressBar
             android:id="@+id/progress"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
             android:visibility="visible"
-            android:layout_height="20dp"
             app:activeDot="@color/spiral_color_on"
-            app:dotSize="10dp"
+            app:dotSize="7dp"
             app:inactiveDot="@color/light_grey"
-            app:jumpingSpeed="670"
             android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/deviceImage"
             app:layout_constraintRight_toLeftOf="@id/adoImage1"
             app:layout_constraintTop_toTopOf="parent"
-            app:spacing="10dp">
+            app:spacing="10dp"/>
 
-        </com.faceopen.ado_poc.DottedProgressBar>
+        <ImageView
+            android:id="@+id/error_image"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/error"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/deviceImage"
+            app:layout_constraintRight_toLeftOf="@id/adoImage1"
+            app:layout_constraintTop_toTopOf="parent"/>
+
 
         <ImageView
             android:id="@+id/adoImage1"
@@ -1358,7 +1364,7 @@
         android:id="@+id/cl_operation_test"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/tv_test"
