@@ -1194,7 +1194,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="30dp"
-            android:src="@drawable/dooropen_white"
+            android:src="@drawable/doorclose_white"
             app:layout_constraintRight_toLeftOf="@id/gl_open"
             app:layout_constraintTop_toBottomOf="@+id/tv_open_cal_sub" />
 
@@ -1413,6 +1413,12 @@
             android:track="@drawable/track"
             android:layout_marginTop="60dp"
             android:layout_marginLeft="70dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@id/gl_test"
             app:layout_constraintTop_toBottomOf="@+id/tv_test_sub"/>
 
@@ -1435,7 +1441,7 @@
             android:gravity="center"
             android:visibility="visible"
             android:layout_height="55dp"
-            android:text="Open"
+            android:text=""
             android:textSize="16sp"
             android:layout_marginTop="60dp"
             android:layout_marginLeft="70dp"

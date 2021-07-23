@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -631,6 +632,19 @@ public class MainActivity extends AppCompatActivity {
                 if(count == 35){
                     cl_test.setVisibility(View.GONE);
                     cl_operation_test.setVisibility(View.VISIBLE);
+                    labeledSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                            if (isChecked) {
+                                swOpen.setText("Open");
+                                iv_test_door.setImageResource(R.drawable.doorclose_white);
+                        swClose.setText(" ");
+                            } else {
+                                swOpen.setText("");
+                                swClose.setText("Close");
+                                iv_test_door.setImageResource(R.drawable.dooropen_white);
+                            }
+                        }
+                    });
                 }
                 if(count == 37){
                     cl_operation_test.setVisibility(View.GONE);

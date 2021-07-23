@@ -6,10 +6,22 @@
             <stroke
                 android:width="2dp"
                 android:color="@color/spiral_color_on"/>
+            <padding
+                android:left="17dp"
+                android:right="17dp"
+                android:bottom="12dp"
+                android:top="12dp"
+                />
+            <margin
+                android:left="0dp"
+                android:right="20dp"
+                android:bottom="4dp"
+                android:top="4dp"
+                />
             <size
                 android:width="55dp"
                 android:height="55dp"/>
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_down" />
+    <item android:drawable="@drawable/dooropen" />
 </layer-list>
