@@ -376,7 +376,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void screenChange(){
-        new CountDownTimer(35000, 1000) {
+        new CountDownTimer(39000, 1000) {
             public void onTick(long millisUntilFinished) {
                 count++;
                 Log.d("XXX", "COUNT XXX" + count);
@@ -615,21 +615,61 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(count == 28){
                     cl_calibration.setVisibility(View.GONE);
+
                     cl_closeCal.setVisibility(View.VISIBLE);
-                }
-                if(count == 29){
-                    cl_closeCal.setVisibility(View.GONE);
-                    cl_openCal.setVisibility(View.VISIBLE);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            iv_close_door.setVisibility(View.VISIBLE);
+                            tv_close_forward.setVisibility(View.VISIBLE);
+                            iv_close_forward.setVisibility(View.VISIBLE);
+                            iv_close_backward.setVisibility(View.VISIBLE);
+                            tv_close_backward.setVisibility(View.VISIBLE);
+                            tv_close_icon_a.setVisibility(View.VISIBLE);
+                            tv_close_icon_b.setVisibility(View.VISIBLE);
+                            tv_close_continue.setVisibility(View.VISIBLE);
+                            bt_continue_close_calibration.setVisibility(View.VISIBLE);
+                            iv_close_door_preview.setVisibility(View.GONE);
+
+                        }
+                    }, 1000);
+
                 }
                 if(count == 31){
                     cl_closeCal.setVisibility(View.GONE);
                     cl_openCal.setVisibility(View.VISIBLE);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            iv_open_door_preview.setVisibility(View.GONE);
+                            iv_open_door.setVisibility(View.VISIBLE);
+                            tv_open_forward.setVisibility(View.VISIBLE);
+                            iv_open_forward.setVisibility(View.VISIBLE);
+                            iv_open_backward.setVisibility(View.VISIBLE);
+                            tv_open_backward.setVisibility(View.VISIBLE);
+                            tv_open_icon_a.setVisibility(View.VISIBLE);
+                            tv_open_icon_b.setVisibility(View.VISIBLE);
+                            tv_open_continue.setVisibility(View.VISIBLE);
+                            bt_continue_open_calibration.setVisibility(View.VISIBLE);
+
+
+
+
+                        }
+                    }, 1000);
+
                 }
-                if(count == 33){
+                if(count == 34){
+                    cl_closeCal.setVisibility(View.GONE);
+                    cl_openCal.setVisibility(View.VISIBLE);
+                }
+                if(count == 36){
                     cl_openCal.setVisibility(View.GONE);
                     cl_test.setVisibility(View.VISIBLE);
                 }
-                if(count == 35){
+                if(count == 37){
                     cl_test.setVisibility(View.GONE);
                     cl_operation_test.setVisibility(View.VISIBLE);
                     labeledSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -646,7 +686,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-                if(count == 37){
+                if(count == 39){
                     cl_operation_test.setVisibility(View.GONE);
                     cl_done.setVisibility(View.VISIBLE);
                 }
