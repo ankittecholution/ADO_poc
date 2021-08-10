@@ -110,14 +110,14 @@ public class TakePicture extends AppCompatActivity {
 
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.CAMERA},
-                100);
+                REQUEST_CAMERA_PERMISSION);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
-            case 100:
+            case REQUEST_CAMERA_PERMISSION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getApplicationContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
                     startPreView();
