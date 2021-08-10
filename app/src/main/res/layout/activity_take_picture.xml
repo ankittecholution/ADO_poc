@@ -6,52 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".TakePicture">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/camview"
-        android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints">
+        <FrameLayout
+            android:id="@+id/camera_preview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            >
 
 
+        </FrameLayout>
+
+
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/camera_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:id="@+id/iv_preview"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
+        android:layout_gravity="bottom"
+        android:rotation="270"
+        android:elevation="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
-        android:contentDescription="@string/app_name" />
+        />
 
     <Button
-        android:id="@+id/button_1"
-        android:layout_width="150dp"
-        android:text="Click to take picture"
-        android:textColor="#fff"
-        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/button_2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="40dp"
-        android:layout_height="60dp"
-         />
-
-        <Button
-            android:id="@+id/button_2"
-            android:layout_width="150dp"
-            android:text="Click to see picture"
-            android:textColor="#fff"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/button_1"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_margin="40dp"
-            android:layout_height="60dp"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_preview"
+        android:id="@+id/button_capture"
+        android:text="Capture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
