@@ -1,6 +1,8 @@
 package com.faceopen.ado_poc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -19,13 +21,19 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
 
@@ -37,9 +45,12 @@ ImageView iv_preview ;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private Bitmap bitmap;
-
+  //  private Bitmap[] imageid;
+    ArrayList <Bitmap> imageid = new ArrayList<Bitmap>() ;
     private Camera mCamera;
     private CameraPreview mPreview;
+    private RecyclerView listView;
+    static Bitmap bmp ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,16 +99,53 @@ ImageView iv_preview ;
                 });
 
                 iv_preview.setImageBitmap(bitmap);
+                imageid.add(bitmap) ;
+                ListAdapter adapter = new ListAdapter(TakePicture.this, imageid);
+                listView.setHasFixedSize(true);
+                LinearLayoutManager layoutManager= new LinearLayoutManager(TakePicture.this,LinearLayoutManager.HORIZONTAL, false);
+                listView.setLayoutManager(layoutManager);
+                listView.setAdapter(adapter);
 
+           /*     try {
+                    iv_preview.setImageBitmap(bmp);
+                    iv_preview.setVisibility(View.VISIBLE);
+                }
+                catch (Exception e){
+                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                } ;*/
 
             }
         });
 
 
 
+        listView=(RecyclerView)findViewById(R.id.lv1);
+        listView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE){
+                    int position = getCurrentItem();
+                    iv_preview.setVisibility(View.VISIBLE);
+                    iv_preview.setImageBitmap(imageid.get(position));
+                }
+            }
+        });
+        TextView t1 = (TextView)findViewById(R.id.cancel) ;
+                t1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                      iv_preview.setVisibility(View.GONE);
+                    }
+                    });
 
 
 
+    }
+
+    private int getCurrentItem(){
+        return ((LinearLayoutManager)listView.getLayoutManager())
+                .findFirstVisibleItemPosition();
     }
 
     public static Camera getCameraInstance(TakePicture context){
